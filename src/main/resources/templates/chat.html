@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat</title>
+</head>
+<body>
+<form action="#" th:action="@{'/chat'}" th:object="${chatForm}" method="POST">
+    <label for="username">Username:</label>
+    <input id="username" type="text" th:field="*{username}">
+    <label for="messageText">Message Text:</label>
+    <input id="messageText" type="text" th:field="*{messageText}">
+    <label for="messageType">Message Type: </label>
+    <select id="messageType" th:field="*{messageType}">
+        <option th:value="'Say'"  selected>Say</option>
+        <option th:value="'Shout'" >Shout</option>
+        <option th:value="'Whisper'">Whisper</option>
+    </select>
+    <input type="submit">
+</form>
+<div th:each="chat : ${chats}">
+    <span th:text="${chat.username}"></span>
+    <span>:</span>
+    <span th:text="${chat.message}"></span>
+</div>
+
+</body>
+</html>
