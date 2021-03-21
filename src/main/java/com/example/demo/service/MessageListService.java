@@ -1,6 +1,7 @@
-package com.example.demo;
+package com.example.demo.service;
 
-import org.apache.logging.log4j.message.Message;
+import com.example.demo.model.ChatForm;
+import com.example.demo.model.ChatMessage;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;

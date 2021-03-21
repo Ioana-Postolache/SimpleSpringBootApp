@@ -1,9 +1,10 @@
-package com.example.demo;
+package com.example.demo.controller;
 
+import com.example.demo.model.MessageForm;
+import com.example.demo.service.MessageListService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
