@@ -1,8 +1,18 @@
 package com.example.demo.model;
 
 public class ChatMessage {
+    private Integer messageId;
     private String username;
-    private String message;
+    private String messageText;
+
+    public ChatMessage() {
+    }
+
+    public ChatMessage(Integer messageId, String username, String messageText) {
+        this.messageId = messageId;
+        this.username = username;
+        this.messageText = messageText;
+    }
 
     public String getUsername() {
         return username;
@@ -13,10 +23,18 @@ public class ChatMessage {
     }
 
     public String getMessage() {
-        return message;
+        return messageText;
     }
 
     public void setMessage(String message) {
-        this.message = message;
+        this.messageText = messageText;
+    }
+
+    public Integer getMessageId() {
+        return messageId;
+    }
+
+    public void setMessageId(Integer messageId) {
+        this.messageId = messageId;
     }
 }
