@@ -21,7 +21,8 @@ public class HomeController {
 
     @GetMapping()
     public String lowFive(MessageForm messageForm, Model model) {
-        messageListService.addMessage("Welcome, " + messageForm.getAdjective() + " " + messageForm.getAnimalName());
+        String name = messageForm.getAnimalName() == null ? "user": messageForm.getAdjective() + " " + messageForm.getAnimalName();
+        messageListService.addMessage("Welcome, " + name);
         model.addAttribute("greetings", messageListService.getMessages());
         return "harder-home";
     }
@@ -29,6 +30,8 @@ public class HomeController {
     @PostMapping()
     public String highFive(MessageForm messageForm, Model model) {
         messageListService.addMessage("We shall now study the " + messageForm.getAdjective() + " " + messageForm.getAnimalName() + " style.");
+        messageForm.setAnimalName("");
+        messageForm.setAdjective("");
         model.addAttribute("greetings", messageListService.getMessages());
         return "harder-home";
     }
