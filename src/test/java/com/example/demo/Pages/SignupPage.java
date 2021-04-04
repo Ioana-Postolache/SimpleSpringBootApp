@@ -34,6 +34,7 @@ public class SignupPage {
         inputUsername.sendKeys(username);
         inputPassword.sendKeys(password);
         submitButton.click();
+
     }
 
     public void goToLogin() {

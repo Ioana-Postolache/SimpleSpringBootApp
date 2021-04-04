@@ -23,13 +23,11 @@ public class ChatMessagesTests {
     private Integer port;
 
     private static WebDriver driver;
+    private String baseURL;
     private SignupPage signup;
     private LoginPage login;
     private ChatPage chatPage;
-    private String username = "username";
-    private String password = "password";
-    private String messageText1 = "hello";
-    private String messageType1 = "Shout";
+
 
     @BeforeAll
     public static void beforeAll() {
@@ -40,29 +38,35 @@ public class ChatMessagesTests {
     @AfterAll
     public static void afterAll() {
         driver.quit();
+        driver = null;
     }
 
     @BeforeEach
     public void beforeEach() {
-        driver.get("http://localhost:" + port + "/login");
+        baseURL = "http://localhost:" + port;
+        driver.get(baseURL + "/login");
         signup = new SignupPage(driver);
         login = new LoginPage(driver);
         chatPage = new ChatPage(driver);
     }
 
     @Test
-    public void testSignup() {
+    public void testSignup() throws InterruptedException {
+        String username = "username";
+        String password = "password";
+        String messageText1 = "hello";
+        String messageType1 = "Shout";
         login.goToSignup();
         WebDriverWait waitForSignup = new WebDriverWait(driver, 10);
         waitForSignup.until(webDriver -> webDriver.findElement(By.cssSelector("form[action=\"/signup\"]")));
         signup.signup(username, password);
-        signup.goToLogin();
-        WebDriverWait waitForLogin = new WebDriverWait(driver, 10);
-        waitForLogin.until(webDriver -> webDriver.findElement(By.cssSelector("form[action=\"/login\"]")));
+        driver.get(baseURL + "/login");
         login.login(username, password);
         WebDriverWait waitForChat = new WebDriverWait(driver, 10);
         waitForChat.until(webDriver -> webDriver.findElement(By.cssSelector("form[action=\"/chat\"]")));
         chatPage.addChatMessage(messageText1, messageType1);
+        WebDriverWait waitForChatMessages = new WebDriverWait(driver, 10);
+        waitForChatMessages.until(webDriver -> webDriver.findElement(By.id("chat-messages")));
         assert(chatPage.getChatMessagesSection().getText().equals(username+": "+ messageText1.toUpperCase()));
     }
 }
