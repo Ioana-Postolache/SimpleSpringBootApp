@@ -26,7 +26,7 @@ public class ChatMessage {
         return messageText;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(String messageText) {
         this.messageText = messageText;
     }
 

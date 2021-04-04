@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SeleniumTest {
+public class SeleniumAnimalPageTest {
 
     public static void main(String[] args) throws InterruptedException {
         WebDriverManager.chromedriver().setup();
@@ -31,6 +31,8 @@ public class SeleniumTest {
         animals.put("bat", "black");
 
         for (Map.Entry animalAdjectivePair : animals.entrySet()) {
+            //find the fields we want by id and fill them in
+            // the elements gets removed from the DOM structure after each submit.
             WebElement animalField = driver.findElement(By.id("animalText"));
             WebElement adjectiveField = driver.findElement(By.id("adjective"));
             WebElement submitField = driver.findElement(By.cssSelector("input[type='submit']"));
