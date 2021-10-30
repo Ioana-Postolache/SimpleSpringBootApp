@@ -10,8 +10,9 @@
     </parent>
     <groupId>com.udacity.jdnd</groupId>
     <artifactId>course1</artifactId>
+    <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>course1</name>
+    <name>Chat Message</name>
     <description>My Super Cool Project</description>
     <properties>
         <java.version>14</java.version>
