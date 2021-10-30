@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/animal")
 public class HomeController {
     private HarderHomeMessagesService messageListService;
-    
+
 
     public HomeController(HarderHomeMessagesService messageListService) {
         this.messageListService = messageListService;
@@ -21,7 +21,7 @@ public class HomeController {
 
     @GetMapping()
     public String lowFive(MessageForm messageForm, Model model) {
-        String name = messageForm.getAnimalName() == null ? "user": messageForm.getAdjective() + " " + messageForm.getAnimalName();
+        String name = messageForm.getAnimalName() == null ? "user" : messageForm.getAdjective() + " " + messageForm.getAnimalName();
         messageListService.addMessage("Welcome, " + name);
         model.addAttribute("greetings", messageListService.getMessages());
         return "harder-home";

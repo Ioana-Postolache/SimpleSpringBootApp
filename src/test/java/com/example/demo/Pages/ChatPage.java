@@ -30,7 +30,7 @@ public class ChatPage {
         submitButton.click();
     }
 
-    public WebElement getChatMessagesSection(){
+    public WebElement getChatMessagesSection() {
         return chatMessagesSection;
     }
 }

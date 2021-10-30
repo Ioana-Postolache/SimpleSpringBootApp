@@ -17,7 +17,7 @@ public class SeleniumAnimalPageTest {
         driver.get("http://localhost:8080/animal");
         submitAnimals(driver);
         WebElement enoughHeader = driver.findElement(By.cssSelector("h1"));
-        System.out.print("Page said: "+ enoughHeader.getText());
+        System.out.print("Page said: " + enoughHeader.getText());
         Thread.sleep(3000);
         driver.quit();
     }

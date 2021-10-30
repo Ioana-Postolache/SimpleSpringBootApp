@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import org.springframework.stereotype.Service;
+
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ public class HarderHomeMessagesService {
     public List<String> getMessages() {
         return messages;
     }
+
     public void addMessage(String message) {
         messages.add(message);
     }

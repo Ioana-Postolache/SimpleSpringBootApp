@@ -67,6 +67,6 @@ public class ChatMessagesTests {
         chatPage.addChatMessage(messageText1, messageType1);
         WebDriverWait waitForChatMessages = new WebDriverWait(driver, 10);
         waitForChatMessages.until(webDriver -> webDriver.findElement(By.id("chat-messages")));
-        assert(chatPage.getChatMessagesSection().getText().equals(username+": "+ messageText1.toUpperCase()));
+        assert (chatPage.getChatMessagesSection().getText().equals(username + ": " + messageText1.toUpperCase()));
     }
 }

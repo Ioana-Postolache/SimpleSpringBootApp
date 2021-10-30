@@ -36,8 +36,8 @@ public class ChatController {
     }
 
     @ModelAttribute("allMessageTypes")
-    public String[] allMessageTypes () {
-        return new String[] { "Say", "Shout", "Whisper" };
+    public String[] allMessageTypes() {
+        return new String[]{"Say", "Shout", "Whisper"};
     }
 
 }
